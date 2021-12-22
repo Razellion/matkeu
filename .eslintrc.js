@@ -3,12 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-    "next",
-    "next/core-web-vitals",
-  ],
+  extends: ["eslint:recommended", "next", "next/core-web-vitals"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
