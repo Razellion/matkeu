@@ -6,7 +6,6 @@ import FormInput from "../js/components/ui/form/form";
 import {
   BungaOpt,
   ModalAkhir,
-  TotalBunga,
   ModalAwal,
   LamaTanggungan,
   SukuBunga,
