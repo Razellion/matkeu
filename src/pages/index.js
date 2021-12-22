@@ -1,4 +1,4 @@
-import Layout from "../js/layout/Layout";
+import Layout from "../js/layout/layout";
 import HomeCard from "../js/components/ui/homecard/homecard";
 
 const menu = [
