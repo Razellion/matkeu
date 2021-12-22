@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../js/layout/Layout";
+import Layout from "../js/layout/layout";
 import DropdownMenu from "../js/components/ui/dropdown/dropdownmenu";
 import DropdownForm from "../js/components/ui/dropdown/dropdownform";
 import FormInput from "../js/components/ui/form/form";

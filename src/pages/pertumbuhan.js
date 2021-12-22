@@ -1,6 +1,6 @@
 import React from "react";
 import DropdownMenu from "../js/components/ui/dropdown/dropdownmenu";
-import Layout from "../js/layout/Layout";
+import Layout from "../js/layout/layout";
 const Pertumbuhan = () => {
   return (
     <Layout>
