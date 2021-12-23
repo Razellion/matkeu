@@ -1,21 +1,32 @@
 import React from "react";
+import DropdownInput from "./dropdowninput";
 
-const Input = ({ label, value, name, setValue }) => {
+const Input = ({ props, setValue }) => {
   return (
     <div className="text-left">
-      <label htmlFor="input" className="text-sm">
-        {label}
+      <label htmlFor={props.name} className="text-sm">
+        {props.label}
       </label>
-      <input
-        name={name}
-        value={value}
-        onChange={setValue}
-        type="text"
-        inputMode="numeric"
-        required
-        pattern="[0-9]*"
-        className="px-2 py-1 w-72 border text-sm shadow-md border-blue-400 rounded-md focus:outline-none"
-      />
+      <div className="flex">
+        <input
+          name={props.name}
+          onChange={setValue}
+          type="text"
+          inputMode="numeric"
+          required
+          pattern="[0-9]*"
+          className={`${
+            props.opt ? "w-48 rounded-l-md" : "w-72 rounded-md"
+          } px-2 py-1 border text-sm shadow-md border-blue-400 focus:outline-none`}
+        />
+        {props.opt && (
+          <DropdownInput
+            name={props.name}
+            menu={props.opt}
+            setValue={setValue}
+          />
+        )}
+      </div>
     </div>
   );
 };

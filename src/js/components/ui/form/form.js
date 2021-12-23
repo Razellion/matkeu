@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import Swal from "sweetalert2";
 import Input from "../input/input";
 
 const formReducer = (state, event) => {
@@ -20,6 +21,14 @@ const FormInput = ({ inputs }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    //TODO: panggil fungsi rumus buat hitung hasil akhir
+    //TODO: conditional sweetalert
+    Swal.fire({
+      title: "Hasil Akhir",
+      text: "Jumlah modal akhir pada periode pembayaran ke-x bernilai: y",
+      icon: "success",
+      confirmButtonText: "Lanjut Pembahasan",
+    });
     console.log(formData);
   };
   return (
@@ -27,17 +36,12 @@ const FormInput = ({ inputs }) => {
       <form className="space-y-2" onSubmit={handleSubmit}>
         {inputs.map((input) => {
           return (
-            <Input
-              key={input.name}
-              label={input.label}
-              name={input.name}
-              setValue={handleChange}
-            />
+            <Input key={input.name} props={input} setValue={handleChange} />
           );
         })}
         <div>
           <button
-            className="mt-4 px-3 py-1 rounded-full border border-blue-400 text-sm font-semibold text-blue-600 shadow-md"
+            className="mt-4 px-5 py-1 rounded-full border border-blue-400 text-sm font-semibold text-blue-600 shadow-md"
             type="submit"
           >
             Hitung!

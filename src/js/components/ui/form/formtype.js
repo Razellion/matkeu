@@ -6,9 +6,21 @@ const BungaOpt = [
 ];
 const ModalAkhir = [
   { label: "Modal Awal (M)", name: "modalawal" },
-  { label: "Besar Bunga (p)", name: "bunga" },
-  { label: "Lama pinjaman / investasi (w)", name: "lamapinjam" },
-  { label: "Periode Pembayaran setiap", name: "periode" },
+  {
+    label: "Besar Bunga (p)",
+    name: "bunga",
+    opt: ["%/Tahun", "%/Semester", "%/Catur Wulan", "%/Triwulan", "%/Bulan"],
+  },
+  {
+    label: "Lama pinjaman / investasi (w)",
+    name: "lamapinjam",
+    opt: ["Bulan", "Tahun"],
+  },
+  {
+    label: "Periode Pembayaran setiap",
+    name: "periode",
+    opt: ["Bulan", "Tahun"],
+  },
 ];
 const TotalBunga = [
   { label: "Modal Akhir (Mw)", name: "modalakhir" },
