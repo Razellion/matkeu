@@ -1,16 +1,21 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
-const DropdownInput = ({ name, menu, setValue }) => {
-  //TODO: bikin usestate default value
+const DropdownInput = ({ name, menu, setValue, setForm }) => {
+  //bikin usestate default value buat pilihan tahun bulan
+  const [defaultValue, setDefaultValue] = useState(menu[0]);
+  const nameOpt = `${name}Opt`;
+  useEffect(() => {
+    setForm({ name: nameOpt, value: defaultValue });
+  }, [defaultValue, nameOpt, setForm]);
+
   return (
     <div className="w-24">
-      <Menu as="div" className="w-full inline-block text-left">
+      <Menu as="div" className="w-full text-left">
         <div>
-          <Menu.Button className="flex justify-between w-full px-2 py-1 text-xs text-gray-900 bg-gray-300 shadow-md rounded-r-md border-t border-b border-r border-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            {/* {state.label} */}
-            label
+          <Menu.Button className="flex justify-between w-full px-2 py-1 text-xs text-gray-900 bg-gray-300 shadow-md rounded-r-md border-t border-b border-r border-blue-400">
+            {defaultValue}
             <ChevronDownIcon
               className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
@@ -38,7 +43,10 @@ const DropdownInput = ({ name, menu, setValue }) => {
                       className={`${
                         active ? "bg-violet-500 text-blue-400" : "text-gray-900"
                       } bg-white hover:text-blue-400 group rounded-md text-center w-full px-1 py-2 text-xs`}
-                      onClick={setValue}
+                      onClick={(e) => {
+                        setValue(e);
+                        setDefaultValue(item);
+                      }}
                     />
                   )}
                 </Menu.Item>

@@ -29,21 +29,49 @@ const TotalBunga = [
 ];
 const ModalAwal = [
   { label: "Modal Akhir (Mw)", name: "modalakhir" },
-  { label: "Besar Bunga (p)", name: "bunga" },
-  { label: "Lama pinjaman / investasi (w)", name: "lamapinjam" },
-  { label: "Periode Pembayaran setiap", name: "periode" },
+  {
+    label: "Besar Bunga (p)",
+    name: "bunga",
+    opt: ["%/Tahun", "%/Semester", "%/Catur Wulan", "%/Triwulan", "%/Bulan"],
+  },
+  {
+    label: "Lama pinjaman / investasi (w)",
+    name: "lamapinjam",
+    opt: ["Bulan", "Tahun"],
+  },
+  {
+    label: "Periode Pembayaran setiap",
+    name: "periode",
+    opt: ["Bulan", "Tahun"],
+  },
 ];
 const LamaTanggungan = [
   { label: "Modal Akhir (Mw)", name: "modalakhir" },
   { label: "Modal Awal (M)", name: "modal" },
-  { label: "Besar Bunga (p)", name: "bunga" },
-  { label: "Periode Pembayaran setiap", name: "periode" },
+  {
+    label: "Besar Bunga (p)",
+    name: "bunga",
+    opt: ["%/Tahun", "%/Semester", "%/Catur Wulan", "%/Triwulan", "%/Bulan"],
+  },
+  {
+    label: "Periode Pembayaran setiap",
+    name: "periode",
+    opt: ["Bulan", "Tahun"],
+  },
 ];
 const SukuBunga = [
   { label: "Modal Akhir (Mw)", name: "modalakhir" },
   { label: "Modal Awal (M)", name: "modal" },
-  { label: "Lama pinjaman / investasi (w)", name: "lamapinjam" },
-  { label: "Periode Pembayaran setiap", name: "periode" },
+  {
+    label: "Lama pinjaman / investasi (w)",
+    name: "lamapinjam",
+    opt: ["Bulan", "Tahun"],
+  },
+  {
+    label: "Periode Pembayaran setiap",
+    name: "periode",
+    opt: ["Bulan", "Tahun"],
+  },
 ];
 
 export {

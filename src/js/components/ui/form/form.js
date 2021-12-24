@@ -36,7 +36,12 @@ const FormInput = ({ inputs }) => {
       <form className="space-y-2" onSubmit={handleSubmit}>
         {inputs.map((input) => {
           return (
-            <Input key={input.name} props={input} setValue={handleChange} />
+            <Input
+              key={input.name}
+              props={input}
+              setValue={handleChange}
+              setForm={setFormData}
+            />
           );
         })}
         <div>
