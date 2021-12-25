@@ -7,16 +7,16 @@ const hitungModalAkhir = (inputs, formData, Swal) => {
     formData[inputs[2].name] &&
     formData[inputs[3].name]
   ) {
-    //Mw = M(1+wp)
+    //Mw = M(1+p)^w
     let bunga, lamapinjam, periode;
     const converted = convertToFormat(formData);
     bunga = converted.bunga;
     lamapinjam = converted.lamapinjam;
     periode = converted.periode;
-    //Mw = M(1+wp)
+    //Mw = M(1+p)^w
     let hasil = [
       Number(formData.modalawal) *
-        (1 + (((bunga / 100) * periode) / 12) * lamapinjam),
+        Math.pow(1 + ((bunga / 100) * periode) / 12, lamapinjam),
       lamapinjam,
     ];
 
@@ -43,21 +43,20 @@ const hitungModalAwal = (inputs, formData, Swal) => {
     formData[inputs[2].name] &&
     formData[inputs[3].name]
   ) {
-    //M = Mw - Mw*((p*w)/((p*w)+1))
+    //M = Mw / (1+p)^w
     let modalakhir = Number(formData.modalakhir);
-    let bunga, lamapinjam;
+    let bunga, lamapinjam, periode;
     const converted = convertToFormat(formData);
     bunga = converted.bunga;
     lamapinjam = converted.lamapinjam;
-    //M = Mw - Mw*((p*w)/((p*w)+1))
+    periode = converted.periode;
+    //M = Mw / (1+p)^w
     let hasil =
-      modalakhir -
-      modalakhir *
-        (((bunga / 100) * lamapinjam) / ((bunga / 100) * lamapinjam + 1));
+      modalakhir / Math.pow(1 + bunga / 100 / (12 / periode), lamapinjam);
 
     Swal.fire({
       title: "Hasil Akhir",
-      text: `Jumlah modal awalnya sebesar: Rp${hasil}`,
+      text: `Jumlah modal awalnya sebesar: Rp${Math.round(hasil)}`,
       icon: "success",
       confirmButtonText: "Lanjut Pembahasan",
     });
@@ -78,18 +77,18 @@ const hitungLamaTanggungan = (inputs, formData, Swal) => {
     formData[inputs[2].name] &&
     formData[inputs[3].name]
   ) {
-    //w = (Mw - M)/(M*p)
+    //w = log(Mw/M)/log(1+p)
     let modalakhir = Number(formData.modalakhir);
     let modalawal = Number(formData.modal);
     let bunga;
     const converted = convertToFormat(formData);
     bunga = converted.bunga;
-    //w = (Mw - M)/(M*[])
-    let hasil = (modalakhir - modalawal) / ((modalawal * bunga) / 100);
+    //w = log(Mw/M)/log(1+p)
+    let hasil = Math.log(modalakhir / modalawal) / Math.log(1 + bunga / 100);
 
     Swal.fire({
       title: "Hasil Akhir",
-      text: `Lama tanggungan selama: ${hasil} tahun`,
+      text: `Lama tanggungan selama: ${Math.round(hasil * 12)} bulan`,
       icon: "success",
       confirmButtonText: "Lanjut Pembahasan",
     });
@@ -110,23 +109,24 @@ const hitungSukuBunga = (inputs, formData, Swal) => {
     formData[inputs[2].name] &&
     formData[inputs[3].name]
   ) {
-    //p = (Mw - M)/(M*w)
+    //p = rootsq((Mw / M), w) - 1
     let modalakhir = Number(formData.modalakhir);
     let modalawal = Number(formData.modal);
     let lama;
-    let lamapinjam;
+    let lamapinjam, periode;
     const converted = convertToFormat(formData);
     lamapinjam = converted.lamapinjam;
+    periode = converted.periode;
     if (formData.lamapinjam !== lamapinjam) {
       lama = "Tahun";
     } else {
       lama = "Bulan";
     }
-    //p = (Mw - M)/(M*w)
-    let hasil = ((modalakhir - modalawal) / (modalawal * lamapinjam)) * 100;
+    //p = rootsq((Mw / M),w) - 1
+    let hasil = (Math.pow(modalakhir / modalawal, 1 / lamapinjam) - 1) * 100;
     Swal.fire({
       title: "Hasil Akhir",
-      text: `Suku Bunga: ${hasil}%/${lama}`,
+      text: `Suku Bunga: ${Math.round(hasil * (12 / periode))}%/${lama}`,
       icon: "success",
       confirmButtonText: "Lanjut Pembahasan",
     });

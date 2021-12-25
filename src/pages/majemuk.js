@@ -10,6 +10,12 @@ import {
   LamaTanggungan,
   SukuBunga,
 } from "../js/components/ui/form/formtype";
+import {
+  hitungModalAkhir,
+  hitungModalAwal,
+  hitungLamaTanggungan,
+  hitungSukuBunga,
+} from "../service/majemukService";
 
 const Majemuk = () => {
   const [majemukState, setMajemukState] = useState(BungaOpt[0]);
@@ -31,16 +37,19 @@ const Majemuk = () => {
                   // conditional bisa diakalin dengan bikin array object of input, nanti di map didalam component form input
                 }
                 {majemukState.name === "modalakhir" && (
-                  <FormInput inputs={ModalAkhir} />
+                  <FormInput inputs={ModalAkhir} hitung={hitungModalAkhir} />
                 )}
                 {majemukState.name === "modalawal" && (
-                  <FormInput inputs={ModalAwal} />
+                  <FormInput inputs={ModalAwal} hitung={hitungModalAwal} />
                 )}
                 {majemukState.name === "lamapinjam" && (
-                  <FormInput inputs={LamaTanggungan} />
+                  <FormInput
+                    inputs={LamaTanggungan}
+                    hitung={hitungLamaTanggungan}
+                  />
                 )}
                 {majemukState.name === "sukubunga" && (
-                  <FormInput inputs={SukuBunga} />
+                  <FormInput inputs={SukuBunga} hitung={hitungSukuBunga} />
                 )}
               </div>
             </div>
