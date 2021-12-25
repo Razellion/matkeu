@@ -9,6 +9,8 @@ import {
   ModalAwal,
   LamaTanggungan,
   SukuBunga,
+  hitungModalAkhir,
+  hitungModalAwal,
 } from "../js/components/ui/form/formtype";
 
 const Tunggal = () => {
@@ -32,10 +34,10 @@ const Tunggal = () => {
                   // conditional bisa diakalin dengan bikin array object of input, nanti di map didalam component form input
                 }
                 {tunggalState.name === "modalakhir" && (
-                  <FormInput inputs={ModalAkhir} />
+                  <FormInput inputs={ModalAkhir} hitung={hitungModalAkhir} />
                 )}
                 {tunggalState.name === "modalawal" && (
-                  <FormInput inputs={ModalAwal} />
+                  <FormInput inputs={ModalAwal} hitung={hitungModalAwal} />
                 )}
                 {tunggalState.name === "lamapinjam" && (
                   <FormInput inputs={LamaTanggungan} />

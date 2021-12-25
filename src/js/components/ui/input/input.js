@@ -13,7 +13,6 @@ const Input = ({ props, setValue, setForm }) => {
           onChange={setValue}
           type="text"
           inputMode="numeric"
-          required
           pattern="[0-9]*"
           className={`${
             props.opt ? "w-48 rounded-l-md" : "w-72 rounded-md"

@@ -9,7 +9,7 @@ const formReducer = (state, event) => {
   };
 };
 
-const FormInput = ({ inputs }) => {
+const FormInput = ({ inputs, hitung }) => {
   const [formData, setFormData] = useReducer(formReducer, {});
 
   const handleChange = (event) => {
@@ -21,15 +21,9 @@ const FormInput = ({ inputs }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //TODO: panggil fungsi rumus buat hitung hasil akhir
-    //TODO: conditional sweetalert
-    Swal.fire({
-      title: "Hasil Akhir",
-      text: "Jumlah modal akhir pada periode pembayaran ke-x bernilai: y",
-      icon: "success",
-      confirmButtonText: "Lanjut Pembahasan",
-    });
-    console.log(formData);
+    //panggil fungsi rumus buat hitung hasil akhir
+    //conditional sweetalert, bikin dinamis
+    hitung(inputs, formData, Swal);
   };
   return (
     <div className="mt-2">
