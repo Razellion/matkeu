@@ -9,9 +9,13 @@ import {
   ModalAwal,
   LamaTanggungan,
   SukuBunga,
+} from "../js/components/ui/form/formtype";
+import {
   hitungModalAkhir,
   hitungModalAwal,
-} from "../js/components/ui/form/formtype";
+  hitungLamaTanggungan,
+  hitungSukuBunga,
+} from "../service/tunggalService";
 
 const Tunggal = () => {
   // bikin state yg ganti berdasarkan dropdown, panggil form type passing ke component form
@@ -40,10 +44,13 @@ const Tunggal = () => {
                   <FormInput inputs={ModalAwal} hitung={hitungModalAwal} />
                 )}
                 {tunggalState.name === "lamapinjam" && (
-                  <FormInput inputs={LamaTanggungan} />
+                  <FormInput
+                    inputs={LamaTanggungan}
+                    hitung={hitungLamaTanggungan}
+                  />
                 )}
                 {tunggalState.name === "sukubunga" && (
-                  <FormInput inputs={SukuBunga} />
+                  <FormInput inputs={SukuBunga} hitung={hitungSukuBunga} />
                 )}
               </div>
             </div>
