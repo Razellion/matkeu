@@ -1,4 +1,4 @@
-import { convertToFormat } from "../js/components/ui/form/formtype";
+import { convertToFormat } from "../js/components/ui/form/bungaformtype";
 
 const hitungModalAkhir = (inputs, formData, Swal) => {
   if (

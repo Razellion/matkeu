@@ -9,7 +9,7 @@ import {
   ModalAwal,
   LamaTanggungan,
   SukuBunga,
-} from "../js/components/ui/form/formtype";
+} from "../js/components/ui/form/bungaformtype";
 import {
   hitungModalAkhir,
   hitungModalAwal,

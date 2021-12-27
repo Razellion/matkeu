@@ -30,7 +30,7 @@ const convertToFormat = (formData) => {
   }
   return { bunga: bunga, lamapinjam: lamapinjam, periode: periode };
 };
-
+// ====================== Bunga Tunggal / Majemuk ======================
 const ModalAkhir = [
   { label: "Modal Awal (M)", name: "modalawal" },
   {
@@ -55,6 +55,7 @@ const TotalBunga = [
   { label: "Besar Bunga (p)", name: "bunga" },
   { label: "Lama pinjaman / investasi (w)", name: "lamapinjam" },
 ];
+
 const ModalAwal = [
   { label: "Modal Akhir (Mw)", name: "modalakhir" },
   {

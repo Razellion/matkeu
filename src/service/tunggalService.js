@@ -1,4 +1,4 @@
-import { convertToFormat } from "../js/components/ui/form/formtype";
+import { convertToFormat } from "../js/components/ui/form/bungaformtype";
 
 const hitungModalAkhir = (inputs, formData, Swal) => {
   if (
@@ -113,17 +113,20 @@ const hitungSukuBunga = (inputs, formData, Swal) => {
     //p = (Mw - M)/(M*w)
     let modalakhir = Number(formData.modalakhir);
     let modalawal = Number(formData.modal);
-    let lama;
-    let lamapinjam;
+    let lama, lamapinjam, periode;
     const converted = convertToFormat(formData);
     lamapinjam = converted.lamapinjam;
+    periode = converted.periode;
     if (formData.lamapinjam !== lamapinjam) {
       lama = "Tahun";
     } else {
       lama = "Bulan";
     }
     //p = (Mw - M)/(M*w)
-    let hasil = ((modalakhir - modalawal) / (modalawal * lamapinjam)) * 100;
+    let hasil =
+      ((modalakhir - modalawal) / (modalawal * lamapinjam)) *
+      (12 / periode) *
+      100;
     Swal.fire({
       title: "Hasil Akhir",
       text: `Suku Bunga: ${hasil}%/${lama}`,

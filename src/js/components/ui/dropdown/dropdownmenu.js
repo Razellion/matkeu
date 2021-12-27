@@ -47,7 +47,7 @@ const DropdownMenu = () => {
                             active
                               ? "bg-violet-500 text-blue-400"
                               : "text-gray-900"
-                          } hover:text-blue-400 group rounded-md text-center w-full px-2 py-2 text-sm`}
+                          } bg-white hover:text-blue-400 group rounded-md text-center w-full px-2 py-2 text-sm`}
                         >
                           {item.label}
                         </button>
