@@ -41,12 +41,12 @@ const ModalAkhir = [
   {
     label: "Lama pinjaman / investasi (w)",
     name: "lamapinjam",
-    opt: ["Bulan", "Tahun"],
+    opt: ["Tahun", "Bulan"],
   },
   {
     label: "Periode Pembayaran setiap",
     name: "periode",
-    opt: ["Bulan", "Tahun"],
+    opt: ["Tahun", "Bulan"],
   },
 ];
 
@@ -66,12 +66,12 @@ const ModalAwal = [
   {
     label: "Lama pinjaman / investasi (w)",
     name: "lamapinjam",
-    opt: ["Bulan", "Tahun"],
+    opt: ["Tahun", "Bulan"],
   },
   {
     label: "Periode Pembayaran setiap",
     name: "periode",
-    opt: ["Bulan", "Tahun"],
+    opt: ["Tahun", "Bulan"],
   },
 ];
 
@@ -86,7 +86,7 @@ const LamaTanggungan = [
   {
     label: "Periode Pembayaran setiap",
     name: "periode",
-    opt: ["Bulan", "Tahun"],
+    opt: ["Tahun", "Bulan"],
   },
 ];
 
@@ -96,12 +96,12 @@ const SukuBunga = [
   {
     label: "Lama pinjaman / investasi (w)",
     name: "lamapinjam",
-    opt: ["Bulan", "Tahun"],
+    opt: ["Tahun", "Bulan"],
   },
   {
     label: "Periode Pembayaran setiap",
     name: "periode",
-    opt: ["Bulan", "Tahun"],
+    opt: ["Tahun", "Bulan"],
   },
 ];
 

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
-const DropdownForm = ({ menu, state, setState }) => {
+const DropdownForm = ({ menu, state, setState, setShowSolution }) => {
   return (
     <div className="mt-4 mb-6">
       <Menu as="div" className="w-full z-10 relative inline-block text-left">
@@ -34,6 +34,7 @@ const DropdownForm = ({ menu, state, setState }) => {
                         active ? "bg-violet-500 text-blue-400" : "text-gray-900"
                       } bg-white hover:text-blue-400 group rounded-md text-center w-full px-2 py-2 text-sm`}
                       onClick={() => {
+                        setShowSolution(false);
                         setState({
                           label: item.label,
                           name: item.name,

@@ -4,9 +4,9 @@ const hitungNilaiAkhir = (inputs, formData, Swal) => {
     formData[inputs[1].name] &&
     formData[inputs[2].name]
   ) {
-    //Mw = M(1+wp)
+    //Nw = N(1-p)^w
 
-    //Mw = M(1+wp)
+    //Nw = N(1-p)^w
     let hasil;
 
     Swal.fire({
@@ -31,9 +31,9 @@ const hitungPersentase = (inputs, formData, Swal) => {
     formData[inputs[1].name] &&
     formData[inputs[2].name]
   ) {
-    //M = Mw - Mw*((p*w)/((p*w)+1))
+    //p = rootsq((Nw / N), w) + 1
 
-    //M = Mw - Mw*((p*w)/((p*w)+1))
+    //p = rootsq((Nw / N), w) + 1
     let hasil;
 
     Swal.fire({
@@ -58,9 +58,9 @@ const hitungLamaPeluruhan = (inputs, formData, Swal) => {
     formData[inputs[1].name] &&
     formData[inputs[2].name]
   ) {
-    //w = (Mw - M)/(M*p)
+    //w = log(Nw/N)/log(1-p)
 
-    //w = (Mw - M)/(M*[])
+    //w = log(Nw/N)/log(1-p)
     let hasil;
 
     Swal.fire({

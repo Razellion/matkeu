@@ -19,20 +19,29 @@ const hitungModalAkhir = (inputs, formData, Swal) => {
         (1 + (((bunga / 100) * periode) / 12) * lamapinjam),
       lamapinjam,
     ];
-
-    Swal.fire({
-      title: "Hasil Akhir",
-      text: `Jumlah modal akhir pada periode pembayaran ke-${hasil[1]} bernilai: Rp${hasil[0]}`,
-      icon: "success",
-      confirmButtonText: "Lanjut Pembahasan",
-    });
+    if (Swal !== undefined) {
+      Swal.fire({
+        title: "Hasil Akhir",
+        text: `Jumlah modal akhir pada periode pembayaran ke-${hasil[1]} bernilai: Rp${hasil[0]}`,
+        icon: "success",
+        confirmButtonText: "Lanjut Pembahasan",
+      });
+    } else {
+      return {
+        hasil: hasil[0],
+        bunga: bunga,
+        lamapinjam: lamapinjam,
+      };
+    }
   } else {
-    Swal.fire({
-      title: "Error",
-      text: "Maaf, tolong masukan nilai yang diketahui :)",
-      icon: "error",
-      confirmButtonText: "Oke, saya mengerti",
-    });
+    if (Swal !== undefined) {
+      Swal.fire({
+        title: "Error",
+        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        icon: "error",
+        confirmButtonText: "Oke, saya mengerti",
+      });
+    }
   }
 };
 
@@ -57,7 +66,7 @@ const hitungModalAwal = (inputs, formData, Swal) => {
 
     Swal.fire({
       title: "Hasil Akhir",
-      text: `Jumlah modal awalnya sebesar: Rp${hasil}`,
+      text: `Jumlah modal awalnya sebesar: Rp${hasil.toFixed(2)}`,
       icon: "success",
       confirmButtonText: "Lanjut Pembahasan",
     });
@@ -116,12 +125,8 @@ const hitungSukuBunga = (inputs, formData, Swal) => {
     let lama, lamapinjam, periode;
     const converted = convertToFormat(formData);
     lamapinjam = converted.lamapinjam;
+    lama = formData.periodeOpt;
     periode = converted.periode;
-    if (formData.lamapinjam !== lamapinjam) {
-      lama = "Tahun";
-    } else {
-      lama = "Bulan";
-    }
     //p = (Mw - M)/(M*w)
     let hasil =
       ((modalakhir - modalawal) / (modalawal * lamapinjam)) *
@@ -129,7 +134,9 @@ const hitungSukuBunga = (inputs, formData, Swal) => {
       100;
     Swal.fire({
       title: "Hasil Akhir",
-      text: `Suku Bunga: ${hasil}%/${lama}`,
+      text: `Suku Bunga: ${hasil / (12 / periode)}%/${
+        formData.periode
+      } ${lama}`,
       icon: "success",
       confirmButtonText: "Lanjut Pembahasan",
     });

@@ -4,9 +4,9 @@ const hitungBungaAwal = (inputs, formData, Swal) => {
     formData[inputs[1].name] &&
     formData[inputs[2].name]
   ) {
-    //Mw = M(1+wp)
+    //b1 = M*p
 
-    //Mw = M(1+wp)
+    //b1 = M*p
     let hasil;
 
     Swal.fire({
@@ -31,9 +31,9 @@ const hitungNilaiAnuitas = (inputs, formData, Swal) => {
     formData[inputs[1].name] &&
     formData[inputs[2].name]
   ) {
-    //M = Mw - Mw*((p*w)/((p*w)+1))
+    //A = (M*p)/(1-((1+p)^-w))
 
-    //M = Mw - Mw*((p*w)/((p*w)+1))
+    //A = (M*p)/(1-((1+p)^-w))
     let hasil;
 
     Swal.fire({
@@ -58,9 +58,11 @@ const hitungNilaiAngsuran = (inputs, formData, Swal) => {
     formData[inputs[1].name] &&
     formData[inputs[2].name]
   ) {
-    //w = (Mw - M)/(M*p)
+    //a1 = A - b1
+    //aw = a1(1+i)^w-1
 
-    //w = (Mw - M)/(M*[])
+    //a1 = A - b1
+    //aw = a1(1+i)^w-1
     let hasil;
 
     Swal.fire({

@@ -1,7 +1,7 @@
 import React from "react";
 import DropdownInput from "./dropdowninput";
 
-const Input = ({ props, setValue, setForm }) => {
+const Input = ({ props, setValue, setInput, setForm }) => {
   return (
     <div className="text-left">
       <label htmlFor={props.name} className="text-sm">
@@ -23,6 +23,7 @@ const Input = ({ props, setValue, setForm }) => {
             name={props.name}
             menu={props.opt}
             setValue={setValue}
+            setInput={setInput}
             setForm={setForm}
           />
         )}

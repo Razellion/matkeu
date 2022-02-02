@@ -9,11 +9,18 @@ const formReducer = (state, event) => {
   };
 };
 
-const FormInput = ({ inputs, hitung }) => {
+const FormInput = ({ inputs, hitung, setInput, setShowSolution }) => {
   const [formData, setFormData] = useReducer(formReducer, {});
 
   const handleChange = (event) => {
+    if (setShowSolution !== undefined) {
+      setShowSolution(false);
+    }
     setFormData({
+      name: event.target.name,
+      value: event.target.value,
+    });
+    setInput({
       name: event.target.name,
       value: event.target.value,
     });
@@ -24,6 +31,9 @@ const FormInput = ({ inputs, hitung }) => {
     //panggil fungsi rumus buat hitung hasil akhir
     //conditional sweetalert, bikin dinamis
     hitung(inputs, formData, Swal);
+    if (setShowSolution !== undefined && Object.keys(formData).length === 7) {
+      setShowSolution(true);
+    }
   };
   return (
     <div className="mt-2">
@@ -34,6 +44,7 @@ const FormInput = ({ inputs, hitung }) => {
               key={input.name}
               props={input}
               setValue={handleChange}
+              setInput={setInput}
               setForm={setFormData}
             />
           );

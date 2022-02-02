@@ -2,13 +2,14 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
-const DropdownInput = ({ name, menu, setValue, setForm }) => {
+const DropdownInput = ({ name, menu, setValue, setInput, setForm }) => {
   //bikin usestate default value buat pilihan tahun bulan
   const [defaultValue, setDefaultValue] = useState(menu[0]);
   const nameOpt = `${name}Opt`;
   useEffect(() => {
     setForm({ name: nameOpt, value: defaultValue });
-  }, [defaultValue, nameOpt, setForm]);
+    setInput({ name: nameOpt, value: defaultValue });
+  }, [defaultValue, nameOpt, setForm, setInput]);
 
   return (
     <div className="w-24">
