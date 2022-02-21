@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import DropdownMenu from "../js/components/ui/dropdown/dropdownmenu";
 import Layout from "../js/layout/layout";
 import DropdownForm from "../js/components/ui/dropdown/dropdownform";
@@ -18,7 +18,14 @@ import {
 } from "../service/majemukService";
 
 const Majemuk = () => {
+  const formReducer = (state, event) => {
+    return {
+      ...state,
+      [event.name]: event.value,
+    };
+  };
   const [majemukState, setMajemukState] = useState(BungaOpt[0]);
+  const [input, setInput] = useReducer(formReducer, {});
   return (
     <Layout>
       <div className="flex justify-center">
@@ -37,19 +44,34 @@ const Majemuk = () => {
                   // conditional bisa diakalin dengan bikin array object of input, nanti di map didalam component form input
                 }
                 {majemukState.name === "modalakhir" && (
-                  <FormInput inputs={ModalAkhir} hitung={hitungModalAkhir} />
+                  <FormInput
+                    inputs={ModalAkhir}
+                    hitung={hitungModalAkhir}
+                    input={input}
+                    setInput={setInput}
+                  />
+                  //input supaya pass build
                 )}
                 {majemukState.name === "modalawal" && (
-                  <FormInput inputs={ModalAwal} hitung={hitungModalAwal} />
+                  <FormInput
+                    inputs={ModalAwal}
+                    hitung={hitungModalAwal}
+                    setInput={setInput}
+                  />
                 )}
                 {majemukState.name === "lamapinjam" && (
                   <FormInput
                     inputs={LamaTanggungan}
                     hitung={hitungLamaTanggungan}
+                    setInput={setInput}
                   />
                 )}
                 {majemukState.name === "sukubunga" && (
-                  <FormInput inputs={SukuBunga} hitung={hitungSukuBunga} />
+                  <FormInput
+                    inputs={SukuBunga}
+                    hitung={hitungSukuBunga}
+                    setInput={setInput}
+                  />
                 )}
               </div>
             </div>
