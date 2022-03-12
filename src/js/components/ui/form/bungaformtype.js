@@ -19,12 +19,12 @@ const convertSolution = (input) => {
   BungaPerPeriode = 0;
 
   // // INI BUAT PERIODE
-  // if (input.periodeOpt === "Bulan" && input.bungaOpt === "%/Tahun") {
-  //   Temp_Period = 12 / Temp_Period;
-  // }
-  // if (input.periodeOpt === "Tahun" && input.bungaOpt === "%/Tahun") {
-  //   Temp_Period = 12 * Temp_Period;
-  // }
+  if (input.periodeOpt === "Bulan" && input.bungaOpt === "%/Tahun") {
+    Temp_Period = Temp_Period;
+  }
+  if (input.periodeOpt === "Tahun" && input.bungaOpt === "%/Tahun") {
+    Temp_Period = 12 * Temp_Period;
+  }
   // INI BUAT Periode
   // Temp_Lamapinjam = Number(input.lamapinjam);
   // Temp_Period = Number(input.periode);
