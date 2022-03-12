@@ -251,49 +251,6 @@ const Prtmbhan = ({ inputs, input, menu }) => {
             </div>
           </div>
         </div>
-        <table
-          {...getTableProps()}
-          className="text-center border-blue-400 shadow-lg"
-        >
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()} className="rounded-lg">
-                {headerGroup.headers.map((column) => (
-                  <th
-                    {...column.getHeaderProps()}
-                    className="bg-blue-400 text-white px-3 "
-                  >
-                    {column.render("Header")}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td
-                        {...cell.getCellProps()}
-                        className="bg-white p-2"
-                        // style={{
-                        //   padding: "10px",
-                        //   border: "solid 1px gray",
-                        //   background: "papayawhip",
-                        // }}
-                      >
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
       </div>
     );
   } else if (menu.name === "lamapertumbuhan") {
