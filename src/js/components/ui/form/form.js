@@ -31,7 +31,20 @@ const FormInput = ({ inputs, hitung, setInput, setShowSolution }) => {
     //panggil fungsi rumus buat hitung hasil akhir
     //conditional sweetalert, bikin dinamis
     hitung(inputs, formData, Swal);
-    if (setShowSolution !== undefined && Object.keys(formData).length === 7) {
+    // console.log(formData);
+    let formLength = 0;
+    formLength = formLength + inputs.length;
+    inputs.map((input) => {
+      if (input.opt) {
+        formLength = formLength + 1;
+      }
+    });
+    // console.log(formLength);
+    // INI IF dibawah -- && Object.keys(formData).length >= 6
+    if (
+      setShowSolution !== undefined &&
+      Object.keys(formData).length === formLength
+    ) {
       setShowSolution(true);
     }
   };

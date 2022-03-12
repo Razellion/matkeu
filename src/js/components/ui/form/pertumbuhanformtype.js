@@ -1,7 +1,8 @@
 const PertumbuhanOpt = [
   { label: "Hitung jumlah pertumbuhan ke-n (Nw)", name: "nilaiakhir" },
-  { label: "Mencari besar persentase pertumbuhan (p)", name: "persentase" },
+  { label: "Mencari nilai awal pertumbuhan (N0)", name: "nilaiawal" },
   { label: "Mencari lama pertumbuhan (w)", name: "lamapertumbuhan" },
+  { label: "Mencari besar persentase pertumbuhan (p)", name: "persentase" },
 ];
 
 const NilaiAkhir = [
@@ -9,6 +10,19 @@ const NilaiAkhir = [
   {
     label: "Persentase pertumbuhan",
     name: "persentase",
+    persen: true,
+  },
+  {
+    label: "Lama pertumbuhan (w)",
+    name: "lamapertumbuhan",
+  },
+];
+const NilaiAwal = [
+  { label: "Nilai akhir (Nw)", name: "nilaiakhir" },
+  {
+    label: "Persentase pertumbuhan",
+    name: "persentase",
+    persen: true,
   },
   {
     label: "Lama pertumbuhan (w)",
@@ -25,11 +39,12 @@ const Persentase = [
 ];
 const LamaPertumbuhan = [
   { label: "Nilai awal (N0)", name: "nilaiawal" },
-  { label: "Nilai akhir (N0)", name: "nilaiakhir" },
+  { label: "Nilai akhir (Nw)", name: "nilaiakhir" },
   {
     label: "Persentase pertumbuhan",
     name: "persentase",
+    persen: true,
   },
 ];
 
-export { PertumbuhanOpt, NilaiAkhir, Persentase, LamaPertumbuhan };
+export { PertumbuhanOpt, NilaiAkhir, NilaiAwal, Persentase, LamaPertumbuhan };

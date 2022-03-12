@@ -1,8 +1,10 @@
+// import React, { useState } from "react";
 import React, { useState, useReducer } from "react";
-import DropdownMenu from "../js/components/ui/dropdown/dropdownmenu";
 import Layout from "../js/layout/layout";
+import DropdownMenu from "../js/components/ui/dropdown/dropdownmenu";
 import DropdownForm from "../js/components/ui/dropdown/dropdownform";
 import FormInput from "../js/components/ui/form/form";
+import BM from "../js/components/ui/solutioncard/BM";
 import {
   BungaOpt,
   ModalAkhir,
@@ -26,6 +28,7 @@ const Majemuk = () => {
   };
   const [majemukState, setMajemukState] = useState(BungaOpt[0]);
   const [input, setInput] = useReducer(formReducer, {});
+  const [showSolution, setShowSolution] = useState(false);
   return (
     <Layout>
       <div className="flex justify-center">
@@ -39,24 +42,22 @@ const Majemuk = () => {
                   menu={BungaOpt}
                   state={majemukState}
                   setState={setMajemukState}
+                  setShowSolution={setShowSolution}
                 />
-                {
-                  // conditional bisa diakalin dengan bikin array object of input, nanti di map didalam component form input
-                }
                 {majemukState.name === "modalakhir" && (
                   <FormInput
                     inputs={ModalAkhir}
                     hitung={hitungModalAkhir}
-                    input={input}
                     setInput={setInput}
+                    setShowSolution={setShowSolution}
                   />
-                  //input supaya pass build
                 )}
                 {majemukState.name === "modalawal" && (
                   <FormInput
                     inputs={ModalAwal}
                     hitung={hitungModalAwal}
                     setInput={setInput}
+                    setShowSolution={setShowSolution}
                   />
                 )}
                 {majemukState.name === "lamapinjam" && (
@@ -64,18 +65,36 @@ const Majemuk = () => {
                     inputs={LamaTanggungan}
                     hitung={hitungLamaTanggungan}
                     setInput={setInput}
+                    setShowSolution={setShowSolution}
                   />
                 )}
                 {majemukState.name === "sukubunga" && (
                   <FormInput
                     inputs={SukuBunga}
                     hitung={hitungSukuBunga}
+                    // input={input}
                     setInput={setInput}
+                    setShowSolution={setShowSolution}
                   />
                 )}
               </div>
             </div>
           </div>
+          {
+            // conditional bisa diakalin dengan bikin array object of input, nanti di map didalam component form input
+          }
+          {showSolution && majemukState.name === "modalakhir" && (
+            <BM inputs={ModalAkhir} input={input} menu={BungaOpt[0]} />
+          )}
+          {showSolution && majemukState.name === "modalawal" && (
+            <BM inputs={ModalAwal} input={input} menu={BungaOpt[1]} />
+          )}
+          {showSolution && majemukState.name === "lamapinjam" && (
+            <BM inputs={LamaTanggungan} input={input} menu={BungaOpt[2]} />
+          )}
+          {showSolution && majemukState.name === "sukubunga" && (
+            <BM inputs={SukuBunga} input={input} menu={BungaOpt[3]} />
+          )}
         </div>
       </div>
     </Layout>

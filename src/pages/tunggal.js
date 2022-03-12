@@ -3,7 +3,7 @@ import Layout from "../js/layout/layout";
 import DropdownMenu from "../js/components/ui/dropdown/dropdownmenu";
 import DropdownForm from "../js/components/ui/dropdown/dropdownform";
 import FormInput from "../js/components/ui/form/form";
-import SolutionCard from "../js/components/ui/solutioncard/solutioncard";
+import BT from "../js/components/ui/solutioncard/BT";
 import {
   BungaOpt,
   ModalAkhir,
@@ -29,7 +29,6 @@ const Tunggal = () => {
   const [tunggalState, setTunggalState] = useState(BungaOpt[0]);
   const [input, setInput] = useReducer(formReducer, {});
   const [showSolution, setShowSolution] = useState(false);
-  console.log(input);
   return (
     <Layout>
       <div className="flex justify-center">
@@ -58,6 +57,7 @@ const Tunggal = () => {
                     inputs={ModalAwal}
                     hitung={hitungModalAwal}
                     setInput={setInput}
+                    setShowSolution={setShowSolution}
                   />
                 )}
                 {tunggalState.name === "lamapinjam" && (
@@ -65,6 +65,7 @@ const Tunggal = () => {
                     inputs={LamaTanggungan}
                     hitung={hitungLamaTanggungan}
                     setInput={setInput}
+                    setShowSolution={setShowSolution}
                   />
                 )}
                 {tunggalState.name === "sukubunga" && (
@@ -72,23 +73,25 @@ const Tunggal = () => {
                     inputs={SukuBunga}
                     hitung={hitungSukuBunga}
                     setInput={setInput}
+                    setShowSolution={setShowSolution}
                   />
                 )}
               </div>
             </div>
           </div>
+          {/* {console.log(showSolution)} */}
           {showSolution && tunggalState.name === "modalakhir" && (
-            <SolutionCard inputs={ModalAkhir} input={input} />
+            <BT inputs={ModalAkhir} input={input} menu={BungaOpt[0]} />
           )}
-          {/* {showSolution && tunggalState.name === "modalawal" && (
-            <SolutionCard inputs={ModalAwal} input={input} />
+          {showSolution && tunggalState.name === "modalawal" && (
+            <BT inputs={ModalAwal} input={input} menu={BungaOpt[1]} />
           )}
           {showSolution && tunggalState.name === "lamapinjam" && (
-            <SolutionCard inputs={LamaTanggungan} input={input} />
+            <BT inputs={LamaTanggungan} input={input} menu={BungaOpt[2]} />
           )}
           {showSolution && tunggalState.name === "sukubunga" && (
-            <SolutionCard inputs={SukuBunga} input={input} />
-          )} */}
+            <BT inputs={SukuBunga} input={input} menu={BungaOpt[3]} />
+          )}
         </div>
       </div>
     </Layout>
