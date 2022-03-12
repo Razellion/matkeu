@@ -138,7 +138,7 @@ const convertSolution = (input) => {
 
   // INI BUAT LAMA PINJAM
   // Temp_Lamapinjam = Number(input.lamapinjam);
-  // Temp_Period = Number(input.periode);
+  Temp_Period = Number(input.periode);
   if (input.lamapinjamOpt === "Tahun" && input.periodeOpt === "Bulan") {
     Temp_Lamapinjam = (Temp_Lamapinjam * 12) / Temp_Period;
   } else if (input.lamapinjamOpt === "Bulan" && input.periodeOpt === "Tahun") {
