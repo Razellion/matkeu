@@ -19,12 +19,12 @@ const convertSolution = (input) => {
   BungaPerPeriode = 0;
 
   // // INI BUAT PERIODE
-  if (input.periodeOpt === "Bulan" && input.bungaOpt === "%/Tahun") {
-    Temp_Period = Temp_Period;
-  }
-  if (input.periodeOpt === "Tahun" && input.bungaOpt === "%/Tahun") {
-    Temp_Period = 12 * Temp_Period;
-  }
+  // if (input.periodeOpt === "Bulan" && input.bungaOpt === "%/Tahun") {
+  //   Temp_Period = Temp_Period;
+  // }&& input.bungaOpt === "%/Tahun"
+  // if (input.periodeOpt === "Tahun") {
+  //   Temp_Period = 12 * Temp_Period;
+  // }
   // INI BUAT Periode
   // Temp_Lamapinjam = Number(input.lamapinjam);
   // Temp_Period = Number(input.periode);
@@ -101,6 +101,9 @@ const convertSolution = (input) => {
   } else if (input.bungaOpt === "%/Tahun") {
     Temp_BungaOpt = 12;
     if (input.lamapinjamOpt === input.periodeOpt) {
+      if (input.periodeOpt === "Tahun") {
+        Temp_Period = 12 * Temp_Period;
+      }
       BungaPerPeriode = Temp_Bunga / (Temp_BungaOpt / Temp_Period) / 100;
     } else if (input.lamapinjamOpt !== input.periodeOpt) {
       if (input.lamapinjamOpt === "Tahun" && input.periodeOpt === "Bulan") {
@@ -110,6 +113,7 @@ const convertSolution = (input) => {
         input.periodeOpt === "Tahun"
       ) {
         Temp_Period = Temp_Period * 12;
+        console.log(Temp_Period);
         BungaPerPeriode = Temp_Bunga / (12 / Temp_Period) / 100;
       }
     }
@@ -142,7 +146,7 @@ const convertSolution = (input) => {
   if (input.lamapinjamOpt === "Tahun" && input.periodeOpt === "Bulan") {
     Temp_Lamapinjam = (Temp_Lamapinjam * 12) / Temp_Period;
   } else if (input.lamapinjamOpt === "Bulan" && input.periodeOpt === "Tahun") {
-    Temp_Lamapinjam = (Temp_Lamapinjam * 1) / Temp_Period;
+    Temp_Lamapinjam = (Temp_Lamapinjam * 1) / (Temp_Period * 12);
   } else if (input.lamapinjamOpt === "Bulan" && input.periodeOpt === "Bulan") {
     Temp_Lamapinjam = Temp_Lamapinjam / Temp_Period;
   } else if (input.lamapinjamOpt === "Tahun" && input.periodeOpt === "Tahun") {
