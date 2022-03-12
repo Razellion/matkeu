@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import Layout from "../js/layout/layout";
-import HomeCard from "../js/components/ui/homecard/homecard";
+// import HomeCard from "../js/components/ui/homecard/homecard";
 import Link from "next/link";
 
 // import Button from "@material-ui/core/Button";

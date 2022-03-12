@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/jsx-key */
 import React, { useMemo } from "react";
 import { useTable } from "react-table";
 import {

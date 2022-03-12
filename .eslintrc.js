@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["eslint:recommended", "next", "next/core-web-vitals"],
+  extends: ["next", "next/core-web-vitals"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
