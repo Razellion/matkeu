@@ -347,7 +347,7 @@ const Prtmbhan = ({ inputs, input, menu }) => {
                 (5){" "}
                 {Math.pow(
                   Temp_nilaiakhir / Temp_Nilaiawal,
-                  input.lamapertumbuhan
+                  1 / input.lamapertumbuhan
                 )}{" "}
                 = 1 + p
               </p>
@@ -355,7 +355,7 @@ const Prtmbhan = ({ inputs, input, menu }) => {
                 (6){" "}
                 {Math.pow(
                   Temp_nilaiakhir / Temp_Nilaiawal,
-                  input.lamapertumbuhan
+                  1 / input.lamapertumbuhan
                 )}{" "}
                 - 1 = p
               </p>
