@@ -183,7 +183,7 @@ const hitungPersentase = (inputs, formData, Swal) => {
       nilaiakhir / nilaiawal,
       lamapertumbuhan
     );
-    hasil = hasil.toFixed(2);
+    hasil = hasil.toFixed(3);
 
     if (Swal !== undefined) {
       Swal.fire({

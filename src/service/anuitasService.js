@@ -1,30 +1,28 @@
 import { convertSolution } from "../js/components/ui/form/anuitasformtype";
 
 const hitungBungaAwal = (inputs, formData, Swal) => {
-  if (
-    formData[inputs[0].name] &&
-    formData[inputs[1].name] &&
-    formData[inputs[2].name]
-  ) {
-    //b1 = M*p
-
-    //b1 = M*p
-    let hasil;
-
-    Swal.fire({
-      title: "Hasil Akhir",
-      text: `Jumlah modal akhir pada periode pembayaran ke-${hasil[1]} bernilai: Rp${hasil[0]}`,
-      icon: "success",
-      confirmButtonText: "Lanjut Pembahasan",
-    });
-  } else {
-    Swal.fire({
-      title: "Error",
-      text: "Maaf, tolong masukan nilai yang diketahui :)",
-      icon: "error",
-      confirmButtonText: "Oke, saya mengerti",
-    });
-  }
+  // if (
+  //   formData[inputs[0].name] &&
+  //   formData[inputs[1].name] &&
+  //   formData[inputs[2].name]
+  // ) {
+  //b1 = M*p
+  //b1 = M*p
+  // let hasil;
+  // Swal.fire({
+  //   title: "Hasil Akhir",
+  //   text: `Jumlah modal akhir pada periode pembayaran ke-${hasil[1]} bernilai: Rp${hasil[0]}`,
+  //   icon: "success",
+  //   confirmButtonText: "Lanjut Pembahasan",
+  // });
+  // } else {
+  //   Swal.fire({
+  //     title: "Error",
+  //     text: "Maaf, tolong masukan nilai yang diketahui :)",
+  //     icon: "error",
+  //     confirmButtonText: "Oke, saya mengerti",
+  //   });
+  // }
 };
 
 const hitungNilaiAnuitas = (inputs, formData, Swal) => {
@@ -43,6 +41,7 @@ const hitungNilaiAnuitas = (inputs, formData, Swal) => {
     //A = (M*p)/(1-((1+p)^-w))
     let temp = Math.pow(1 + bunga, -lamapembayaran);
     let hasil = (nilaipinjaman * bunga) / (1 - temp);
+    console.log(nilaipinjaman, bunga, lamapembayaran);
     let hasilarray = [
       {
         nomor: "1",

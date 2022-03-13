@@ -15,6 +15,12 @@ const convertSolution = (input) => {
   ) {
     bunga = Number(input.bunga) / 100;
     lamapembayaran = Number(input.lamapembayaran);
+  } else if (
+    input.bungaOpt === "%/Tahun" &&
+    input.lamapembayaranOpt === "Bulan"
+  ) {
+    bunga = Number(input.bunga) / 12 / 100;
+    lamapembayaran = Number(input.lamapembayaran);
   } else {
     if (input.bungaOpt === "%/Bulan") {
       bunga = Number(input.bunga) / 100 / 1;
