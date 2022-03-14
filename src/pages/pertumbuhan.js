@@ -30,8 +30,8 @@ const Pertumbuhan = () => {
   const [pertumbuhanState, setPertumbuhanState] = useState(PertumbuhanOpt[0]);
   const [input, setInput] = useReducer(formReducer, {});
   const [showSolution, setShowSolution] = useState(false);
-  console.log(showSolution);
-  console.log(pertumbuhanState.name);
+  // console.log(showSolution);
+  // console.log(pertumbuhanState.name);
   return (
     <Layout>
       <div className="flex justify-center">

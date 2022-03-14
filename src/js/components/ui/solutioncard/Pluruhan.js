@@ -56,7 +56,7 @@ const Pluruhan = ({ inputs, input, menu }) => {
           accessor: "nilaiawal",
         },
         {
-          Header: "Pertumbuhan (%)",
+          Header: "Peluruhan (%)",
           accessor: "peluruhan",
         },
         {

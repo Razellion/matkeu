@@ -42,7 +42,7 @@ export default function Home() {
         </div>
       </div>
       {/* Component Menu -> iterasi component cards dari routes menu */}
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 flex justify-center ">
         <div>
           {menu.map((item, index) => {
             return <HomeCard key={index} item={item} />;

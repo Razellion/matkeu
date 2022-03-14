@@ -31,40 +31,41 @@ export default function Home() {
 
   const reviews = [
     {
-      name: "Ezar Rt.",
-      citation: "Sale Closed in 2019",
-      quote: "INI NANTI CERITANYA QUOTES!",
-    },
-    {
-      name: "Peter C.",
+      name: "Wayne Chirisa",
       citation: "Sale Closed in 2019",
       quote:
-        "I have bought and sold ten homes. This has been the most rewarding experience of them all. True professionalism and insight as well as great customer service makes me a believer in the Door.com business model.",
+        "Literasi keuangan tidak hanya melibatkan kemampuan untuk menghitung uang Anda, tetapi juga menguji kemampuan Anda untuk mengevaluasi biaya dan manfaat yang terkait dengan setiap keputusan yang Anda buat.",
     },
     {
-      name: "Paulette H.",
+      name: "Dave Ramsey",
       citation: "Sale Closed in 2019",
       quote:
-        "The entire experience from onboarding to the sale of our home has been professional, expedited quickly, and I saved close to $14,000 in commissions. I will absolutely be using Door.com for the sale of my next property.",
+        "Financial peace bukan tentang memiliki suatu barang. Tetapi, belajar untuk hidup berhemat, sehingga kamu dapat menyisihkan uang untuk berinvestasi.",
     },
     {
-      name: "Ryan W.",
+      name: "Adam Smith",
       citation: "Sale Closed in 2019",
       quote:
-        "Service was excellent EVERY step of the process! No way to tell that Door.com provided a flat rate service by the way that they treated us and handled every step of the transactions.",
+        "Tidak ada masyarakat yang bisa maju dan bahagia. Jika, sebagian besar dari mereka adalah kalangan miskin dan sengsara.",
     },
     {
-      name: "Kevin R.",
+      name: "Aristotle",
       citation: "Sale Closed in 2019",
       quote:
-        "Everyone we worked with was very responsive, professional and easy to work with. A great experience all around. I work in this industry too so my expectations are high. Great work by all.",
+        "Uang adalah jaminan bahwa kita mungkin memiliki apa yang kita inginkan di masa depan. Meskipun kita tidak membutuhkan apa-apa saat ini, hal itu menjamin kemungkinan untuk memuaskan keinginan baru ketika keinginan itu muncul.",
+    },
+    {
+      name: "Oscar Wilde",
+      citation: "Sale Closed in 2019",
+      quote:
+        "Ketika saya masih muda saya berpikir bahwa uang adalah hal yang paling penting dalam hidup. Sekarang saya sudah tua, dan saya yakin akan hal itu.",
     },
   ];
 
   return (
     <Layout>
       <div className="flex justify-center">
-        <div className="w-80 h-32 mt-44 border rounded-lg border-blue-400">
+        <div className="w-80 h-36 mt-44 border rounded-lg border-blue-400">
           <div className="text-center text-xs">
             <ul className="carousel__list">
               {reviews.map((review, index) => {
@@ -81,7 +82,7 @@ export default function Home() {
                   >
                     <blockquote className="carousel__quote">
                       <cite>
-                        <p>"{quote}"</p>
+                        <p className="pb-1">"{quote}"</p>
                         <span className="carousel__name">{name}</span>
                       </cite>
                     </blockquote>
@@ -93,7 +94,7 @@ export default function Home() {
         </div>
       </div>
       <Link href={"/menu"} passHref={true}>
-        <div className="flex justify-center mt-20">
+        <div className="flex justify-center mt-24">
           <div className="text-center text-xs">
             <div className="w-32 h-12 p-3.5 bg-blue-300 place-items-center hover:bg-blue-500 rounded-full bg-blue-80 cursor-pointer">
               <h5 className="text-sm text-white">Get Start!</h5>

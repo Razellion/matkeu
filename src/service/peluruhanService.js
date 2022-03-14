@@ -24,27 +24,49 @@ const hitungNilaiAkhir = (inputs, formData, Swal) => {
     let hasilarray = [
       {
         nomor: "1",
-        nilaiawal: nilaiawal,
+        nilaiawal: (nilaiawal - 0)
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
         peluruhan: `${persentase * 100}%`,
-        totalpertumbuhan: nilaiawal * persentase,
-        nilaiakhir: Number(nilaiawal) - Number(nilaiawal * persentase),
+        totalpertumbuhan: (nilaiawal * persentase)
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        nilaiakhir: (Number(nilaiawal) - Number(nilaiawal * persentase))
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
       },
     ];
 
     for (var i = 2; i <= lamapeluruhan; i++) {
       let nomor = i.toString();
       // console.log(hasilarray[i - 2]);
-      let nilaiawal = hasilarray[i - 2].nilaiakhir;
+      let nilaiawal = hasilarray[i - 2].nilaiakhir.toString().replace(/,/g, "");
       let peluruhan = `${persentase * 100}%`;
-      let totalpertumbuhan = nilaiawal * persentase;
-      let nilaiakhir = Number(nilaiawal) - Number(totalpertumbuhan);
+      let totalpertumbuhan = (nilaiawal * persentase)
+        .toString()
+        .replace(/,/g, "");
+      let nilaiakhir = (Number(nilaiawal) - Number(totalpertumbuhan))
+        .toString()
+        .replace(/,/g, "");
       // console.log(nomor, nilaiawal, pertumbuhan, totalpertumbuhan, nilaiakhir);
       let pertumbuhanObj = {
         nomor: i,
-        nilaiawal: nilaiawal,
+        nilaiawal: (nilaiawal - 0)
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
         peluruhan: peluruhan,
-        totalpertumbuhan: totalpertumbuhan,
-        nilaiakhir: nilaiakhir,
+        totalpertumbuhan: (totalpertumbuhan - 0)
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        nilaiakhir: (nilaiakhir - 0)
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
       };
       hasilarray.push(pertumbuhanObj);
     }

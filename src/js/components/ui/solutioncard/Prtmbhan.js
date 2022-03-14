@@ -136,7 +136,8 @@ const Prtmbhan = ({ inputs, input, menu }) => {
                   {resNW.hasil
                     .toFixed(2)
                     .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                  = {resNW.hasil.toFixed(0)}
                 </p>
               </div>
             </div>
