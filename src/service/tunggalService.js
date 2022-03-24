@@ -5,11 +5,18 @@ import { convertToFormat } from "../js/components/ui/form/bungaformtype";
 // }
 
 const hitungModalAkhir = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
     formData[inputs[2].name] &&
-    formData[inputs[3].name]
+    formData[inputs[3].name] &&
+    !isZero
   ) {
     //Mw = M(1+wp)
     let bunga, lamapinjam, periode;
@@ -52,7 +59,7 @@ const hitungModalAkhir = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Error",
-        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
         icon: "error",
         confirmButtonText: "Oke, saya mengerti",
       });
@@ -61,11 +68,18 @@ const hitungModalAkhir = (inputs, formData, Swal) => {
 };
 
 const hitungModalAwal = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
     formData[inputs[2].name] &&
-    formData[inputs[3].name]
+    formData[inputs[3].name] &&
+    !isZero
   ) {
     let Temp = periode;
     let bunga, lamapinjam, periode;
@@ -92,6 +106,7 @@ const hitungModalAwal = (inputs, formData, Swal) => {
       .toFixed(2)
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
     if (Swal !== undefined) {
       Swal.fire({
         title: "Hasil Akhir",
@@ -109,7 +124,7 @@ const hitungModalAwal = (inputs, formData, Swal) => {
   } else {
     Swal.fire({
       title: "Error",
-      text: "Maaf, tolong masukan nilai yang diketahui :)",
+      text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
       icon: "error",
       confirmButtonText: "Oke, saya mengerti",
     });
@@ -117,11 +132,18 @@ const hitungModalAwal = (inputs, formData, Swal) => {
 };
 
 const hitungLamaTanggungan = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
     formData[inputs[2].name] &&
-    formData[inputs[3].name]
+    formData[inputs[3].name] &&
+    !isZero
   ) {
     console.log(inputs);
     //w = (Mw - M)/(M*p)
@@ -152,7 +174,7 @@ const hitungLamaTanggungan = (inputs, formData, Swal) => {
   } else {
     Swal.fire({
       title: "Error",
-      text: "Maaf, tolong masukan nilai yang diketahui :)",
+      text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
       icon: "error",
       confirmButtonText: "Oke, saya mengerti",
     });
@@ -160,11 +182,18 @@ const hitungLamaTanggungan = (inputs, formData, Swal) => {
 };
 
 const hitungSukuBunga = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
     formData[inputs[2].name] &&
-    formData[inputs[3].name]
+    formData[inputs[3].name] &&
+    !isZero
   ) {
     //p = (Mw - M)/(M*w)
     let modalakhir = formData[inputs[0].name].toString().replace(/,/g, "");
@@ -213,7 +242,7 @@ const hitungSukuBunga = (inputs, formData, Swal) => {
   } else {
     Swal.fire({
       title: "Error",
-      text: "Maaf, tolong masukan nilai yang diketahui :)",
+      text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
       icon: "error",
       confirmButtonText: "Oke, saya mengerti",
     });

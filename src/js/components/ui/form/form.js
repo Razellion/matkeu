@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import React, { useReducer } from "react";
 import Swal from "sweetalert2";
 import Input from "../input/input";
@@ -39,11 +40,26 @@ const FormInput = ({ inputs, hitung, setInput, setShowSolution }) => {
         formLength = formLength + 1;
       }
     });
+    let isEmpty = false;
+    let isZero = false;
+
+    for (const key in formData) {
+      if (formData[key] === "") {
+        isEmpty = true;
+      }
+      if (formData[key] == "0") {
+        isZero = true;
+      }
+    }
+
+    console.log(isZero);
     // console.log(formLength);
     // INI IF dibawah -- && Object.keys(formData).length >= 6
     if (
       setShowSolution !== undefined &&
-      Object.keys(formData).length === formLength
+      Object.keys(formData).length === formLength &&
+      !isEmpty &&
+      !isZero
     ) {
       setShowSolution(true);
     }
