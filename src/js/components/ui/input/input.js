@@ -15,7 +15,7 @@ const Input = ({ props, setValue, setInput, setForm }) => {
           onChange={setValue}
           type="text"
           // displayType={"text"}
-          inputMode="decimal"
+          // inputMode="decimal"
           thousandSeparator={true}
           // pattern="[0-9]*"
           className={`${
