@@ -14,10 +14,8 @@ const Input = ({ props, setValue, setInput, setForm }) => {
           name={props.name}
           onChange={setValue}
           type="text"
-          // displayType={"text"}
-          // inputMode="decimal"
+          // inputMode="decimal" // Di Uncomment kalo ada problem..
           thousandSeparator={true}
-          // pattern="[0-9]*"
           className={`${
             props.opt
               ? "w-48 rounded-l-md"

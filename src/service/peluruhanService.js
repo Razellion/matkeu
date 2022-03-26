@@ -1,8 +1,15 @@
 const hitungNilaiAkhir = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
-    formData[inputs[2].name]
+    formData[inputs[2].name] &&
+    !isZero
   ) {
     let nilaiawal, persentase, lamapeluruhan;
     nilaiawal = formData[inputs[0].name].toString().replace(/,/g, "");
@@ -90,7 +97,7 @@ const hitungNilaiAkhir = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Error",
-        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
         icon: "error",
         confirmButtonText: "Oke, saya mengerti",
       });
@@ -98,10 +105,17 @@ const hitungNilaiAkhir = (inputs, formData, Swal) => {
   }
 };
 const hitungNilaiAwal = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
-    formData[inputs[2].name]
+    formData[inputs[2].name] &&
+    !isZero
   ) {
     let nilaiakhir, persentase, lamapeluruhan;
     nilaiakhir = formData[inputs[0].name].toString().replace(/,/g, "");
@@ -139,7 +153,7 @@ const hitungNilaiAwal = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Error",
-        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
         icon: "error",
         confirmButtonText: "Oke, saya mengerti",
       });
@@ -147,10 +161,17 @@ const hitungNilaiAwal = (inputs, formData, Swal) => {
   }
 };
 const hitungPersentase = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
-    formData[inputs[2].name]
+    formData[inputs[2].name] &&
+    !isZero
   ) {
     let nilaiawal, lamapeluruhan, nilaiakhir;
     nilaiawal = formData[inputs[0].name].toString().replace(/,/g, "");
@@ -187,7 +208,7 @@ const hitungPersentase = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Error",
-        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
         icon: "error",
         confirmButtonText: "Oke, saya mengerti",
       });
@@ -196,10 +217,17 @@ const hitungPersentase = (inputs, formData, Swal) => {
 };
 
 const hitungLamaPeluruhan = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
-    formData[inputs[2].name]
+    formData[inputs[2].name] &&
+    !isZero
   ) {
     let nilaiawal, persentase, nilaiakhir;
     nilaiawal = formData[inputs[0].name].toString().replace(/,/g, "");
@@ -242,7 +270,7 @@ const hitungLamaPeluruhan = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Error",
-        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
         icon: "error",
         confirmButtonText: "Oke, saya mengerti",
       });

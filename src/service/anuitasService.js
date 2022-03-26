@@ -26,10 +26,17 @@ const hitungBungaAwal = (inputs, formData, Swal) => {
 };
 
 const hitungNilaiAnuitas = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
-    formData[inputs[2].name]
+    formData[inputs[2].name] &&
+    !isZero
   ) {
     const convert = convertSolution(formData);
     let nilaipinjaman, bunga, lamapembayaran;
@@ -125,7 +132,7 @@ const hitungNilaiAnuitas = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Error",
-        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
         icon: "error",
         confirmButtonText: "Oke, saya mengerti",
       });
@@ -134,12 +141,19 @@ const hitungNilaiAnuitas = (inputs, formData, Swal) => {
 };
 
 const hitungKen = (inputs, formData, Swal) => {
+  let isZero = false; // UNUTUK MEMASTIKAN INPUT TIDAK BOLEH "0"
+  for (const key in formData) {
+    if (formData[key] == "0") {
+      isZero = true;
+    }
+  }
   // console.log(formData);
   if (
     formData[inputs[0].name] &&
     formData[inputs[1].name] &&
     formData[inputs[2].name] &&
-    formData[inputs[3].name]
+    formData[inputs[3].name] &&
+    !isZero
   ) {
     const convert = convertSolution(formData);
     let nilaipinjaman, bunga, lamapembayaran, n;
@@ -173,7 +187,7 @@ const hitungKen = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Error",
-        text: "Maaf, tolong masukan nilai yang diketahui :)",
+        text: "Maaf, tolong masukan nilai yang diketahui. Nilai tidak boleh 0 :)",
         icon: "error",
         confirmButtonText: "Oke, saya mengerti",
       });
