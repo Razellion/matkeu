@@ -181,16 +181,16 @@ const hitungLamaPertumbuhan = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Hasil Akhir",
-        text: `Lama tanggungan selama: ${hasil
-          .toFixed(2)
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} periode`,
+        text: `Lama tanggungan selama: ${Math.round(hasil)} periode`,
         icon: "success",
         confirmButtonText: "Lanjut Pembahasan",
       });
     } else {
       return {
-        hasil: hasil,
+        hasil: hasil
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
         nilaiawal: nilaiawal,
         nilaiakhir: nilaiakhir,
         persentase: persentase,
