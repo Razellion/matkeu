@@ -275,8 +275,7 @@ const BM = ({ inputs, input, menu }) => {
                 {resW.hasil * (12 / Temp_Lamapinjam)}
               </p> */}
               <p>
-                (8) p = {resP.hasil}%/{input.periode} {input.periodeOpt} ={" "}
-                {resP.hasil * (12 / Temp_Period)}%/ {resP.lama}
+                (8) p = {resP.hasil}%/{input.periode} {input.periodeOpt}
               </p>
             </div>
           </div>

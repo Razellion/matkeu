@@ -313,9 +313,7 @@ const BT = ({ inputs, input, menu }) => {
                 = p
               </p>
               <p>
-                (7) p = {resP.hasil}%/{resP.lama} ={" "}
-                {resP.hasil / (12 / input.periode)}%/{input.periode}{" "}
-                {input.periodeOpt}
+                (7) p = {resP.hasil}%/{resP.lama}
               </p>
             </div>
           </div>
