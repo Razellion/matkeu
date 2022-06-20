@@ -171,7 +171,12 @@ const hitungKen = (inputs, formData, Swal) => {
         text: `Besar anuitasnya adalah: ${hasil
           .toFixed(2)
           .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}, angsuran ke-${n}`,
+          .replace(
+            /\B(?=(\d{3})+(?!\d))/g,
+            ","
+          )}, angsuran ke-${n}, total bunga ke-${n}, dan sisa pinjaman ke-${
+          n - 1
+        } Silahkan lanjut ke pembahasan`,
         icon: "success",
         confirmButtonText: "Lanjut Pembahasan",
       });
