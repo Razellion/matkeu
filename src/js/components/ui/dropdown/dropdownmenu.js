@@ -6,7 +6,7 @@ import { ChevronDownIcon } from "@heroicons/react/solid";
 const DropdownMenu = () => {
   //array of menu
   const menu = [
-    { route: "/", label: "Menu Kalkulator (Beranda)" },
+    { route: "/menu", label: "Menu Kalkulator (Beranda)" },
     { route: "/tunggal", label: "Bunga Tunggal" },
     { route: "/majemuk", label: "Bunga Majemuk" },
     { route: "/pertumbuhan", label: "Pertumbuhan" },
