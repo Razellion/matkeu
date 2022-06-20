@@ -181,7 +181,7 @@ const hitungLamaPertumbuhan = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Hasil Akhir",
-        text: `Lama tanggungan selama: ${Math.round(hasil)} periode`,
+        text: `Lama pertumbuhan terjadi sebanyak: ${Math.round(hasil)} periode`,
         icon: "success",
         confirmButtonText: "Lanjut Pembahasan",
       });

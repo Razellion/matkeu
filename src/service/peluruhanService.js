@@ -254,16 +254,16 @@ const hitungLamaPeluruhan = (inputs, formData, Swal) => {
     if (Swal !== undefined) {
       Swal.fire({
         title: "Hasil Akhir",
-        text: `Lama peluruhan terjadi sebanyak: ${hasil
-          .toFixed(2)
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} periode`,
+        text: `Lama peluruhan terjadi sebanyak: ${Math.round(hasil)} periode`,
         icon: "success",
         confirmButtonText: "Lanjut Pembahasan",
       });
     } else {
       return {
-        hasil: hasil,
+        hasil: hasil
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
         nilaiakhir: nilaiakhir,
         nilaiawal: nilaiawal,
         persentase: persentase,
